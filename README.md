@@ -24,8 +24,8 @@ adiciones, cancelaciones y cierre de la orden con trazabilidad histórica.
 
 **Bloque actual:** configuracion de la base tecnica.
 
-**Ultimo avance verificado:** servidor Express y endpoint `GET /api/health`
-verificados mediante compilacion, ejecucion y una peticion HTTP real.
+**Ultimo avance verificado:** enrutador central y middleware para rutas no
+encontradas verificados mediante peticiones HTTP reales.
 
 ## Checklist del proyecto
 
@@ -51,7 +51,7 @@ que funciona.
 - [x] Separar `app.ts` y `server.ts`.
 - [x] Crear `GET /api/health`.
 - [x] Configurar rutas.
-- [ ] Crear middleware para rutas no encontradas.
+- [x] Crear middleware para rutas no encontradas.
 - [ ] Crear manejo centralizado de errores.
 - [ ] Definir el formato basico de respuestas HTTP.
 
@@ -152,6 +152,18 @@ scripts de seeds separados.
 activo. La disponibilidad de MySQL se comprobara por separado para distinguir
 un fallo del servidor web de un fallo de infraestructura.
 
+### DT-005: organizacion de rutas
+
+`app.ts` registrara un unico router bajo `/api`. El router central compondra las
+rutas tecnicas y las rutas propias de cada modulo para evitar que `app.ts`
+crezca junto con la cantidad de funcionalidades.
+
+### DT-006: estilo de funciones
+
+Se preferiran arrow functions almacenadas en constantes para callbacks,
+middlewares, controladores, servicios y utilidades. Se usaran declaraciones
+tradicionales solamente cuando exista una razon tecnica concreta.
+
 ## Fuera del alcance del primer MVP
 
 - Inventario, recetas y produccion.
@@ -163,5 +175,5 @@ un fallo del servidor web de un fallo de infraestructura.
 
 ## Proximo paso
 
-Agregar respuestas para rutas inexistentes y un manejo centralizado de errores.
-Cada paso se implementara y verificara antes de avanzar al siguiente.
+Agregar un manejo centralizado de errores para producir respuestas JSON
+consistentes. Cada paso se implementara y verificara antes de avanzar.
