@@ -1,10 +1,13 @@
 {
   "name": "nexorest-api",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Backend API for NexoRest",
+  "main": "dist/server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "tsx watch src/server.ts",
+    "typecheck": "tsc --noEmit",
+    "build": "tsc",
+    "start": "node dist/server.js"
   },
   "keywords": [],
   "author": "",
@@ -12,6 +15,7 @@
   "type": "commonjs",
   "devDependencies": {
     "@types/node": "^26.4.0",
+    "tsx": "^4.23.13",
     "typescript": "^7.0.2"
   }
 }

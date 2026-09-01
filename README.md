@@ -24,8 +24,8 @@ adiciones, cancelaciones y cierre de la orden con trazabilidad histórica.
 
 **Bloque actual:** configuracion de la base tecnica.
 
-**Ultimo avance verificado:** TypeScript configurado, validado, compilado y
-ejecutado correctamente con Node.js.
+**Ultimo avance verificado:** scripts de npm para desarrollo, validacion,
+compilacion y ejecucion verificados correctamente.
 
 ## Checklist del proyecto
 
@@ -43,7 +43,7 @@ que funciona.
 - [x] Crear `.gitignore` y proteger información sensible.
 - [ ] Configurar ESLint.
 - [ ] Configurar Prettier.
-- [ ] Crear scripts de desarrollo, compilacion y ejecucion.
+- [x] Crear scripts de desarrollo, compilacion y ejecucion.
 
 ### API y servidor
 
@@ -163,5 +163,5 @@ un fallo del servidor web de un fallo de infraestructura.
 
 ## Proximo paso
 
-Agregar scripts de npm para validar, compilar y ejecutar TypeScript. Cada paso
+Instalar Express y sus tipos para construir la base HTTP de la API. Cada paso
 se implementara y verificara antes de avanzar al siguiente.
