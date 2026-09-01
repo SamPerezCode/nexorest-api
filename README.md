@@ -1,11 +1,11 @@
 # NexoRest API
 
-Backend de NexoRest, una plataforma de gestion para restaurantes, cafeterias,
-panaderias y otros negocios gastronomicos.
+Backend de NexoRest, una plataforma de gestión para restaurantes, cafeterias,
+panaderías y otros negocios gastronómicos.
 
-El primer MVP cubrira el flujo operativo entre meseros y cocina: apertura de
-ordenes por mesa, registro de productos, generacion de comandas, preparacion,
-adiciones, cancelaciones y cierre de la orden con trazabilidad historica.
+El primer MVP cubrirá el flujo operativo entre meseros y cocina: apertura de
+ordenes por mesa, registro de productos, generación de comandas, preparación,
+adiciones, cancelaciones y cierre de la orden con trazabilidad histórica.
 
 > Este repositorio contiene solamente el backend. El frontend futuro vivira en
 > un proyecto separado llamado `nexorest-web`.
@@ -24,8 +24,8 @@ adiciones, cancelaciones y cierre de la orden con trazabilidad historica.
 
 **Bloque actual:** configuracion de la base tecnica.
 
-**Ultimo avance verificado:** proyecto Node.js inicializado mediante
-`npm init -y`.
+**Ultimo avance verificado:** TypeScript configurado, validado, compilado y
+ejecutado correctamente con Node.js.
 
 ## Checklist del proyecto
 
@@ -37,10 +37,10 @@ que funciona.
 - [x] Confirmar la carpeta independiente `nexorest-api`.
 - [x] Inicializar el proyecto con Node.js y npm.
 - [x] Inicializar el repositorio Git.
-- [ ] Configurar TypeScript.
+- [x] Configurar TypeScript.
 - [ ] Crear la estructura inicial de directorios.
 - [ ] Configurar variables de entorno.
-- [x] Crear `.gitignore` y proteger informacion sensible.
+- [x] Crear `.gitignore` y proteger información sensible.
 - [ ] Configurar ESLint.
 - [ ] Configurar Prettier.
 - [ ] Crear scripts de desarrollo, compilacion y ejecucion.
@@ -163,5 +163,5 @@ un fallo del servidor web de un fallo de infraestructura.
 
 ## Proximo paso
 
-Configurar los metadatos basicos de `package.json` y preparar TypeScript. Cada
-paso se implementara y verificara antes de avanzar al siguiente.
+Agregar scripts de npm para validar, compilar y ejecutar TypeScript. Cada paso
+se implementara y verificara antes de avanzar al siguiente.
