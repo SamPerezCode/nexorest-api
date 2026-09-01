@@ -1,3 +1,7 @@
-const serviceName: string = "nexorest-api";
+import { app } from "./app";
 
-console.log(`${serviceName}: TypeScript configurado correctamente`);
+const PORT = 3000;
+
+app.listen(PORT, () => {
+  console.log(`nexorest-api ejecutándose en el puerto ${PORT}`);
+});

@@ -24,8 +24,8 @@ adiciones, cancelaciones y cierre de la orden con trazabilidad histórica.
 
 **Bloque actual:** configuracion de la base tecnica.
 
-**Ultimo avance verificado:** scripts de npm para desarrollo, validacion,
-compilacion y ejecucion verificados correctamente.
+**Ultimo avance verificado:** servidor Express y endpoint `GET /api/health`
+verificados mediante compilacion, ejecucion y una peticion HTTP real.
 
 ## Checklist del proyecto
 
@@ -47,17 +47,17 @@ que funciona.
 
 ### API y servidor
 
-- [ ] Instalar y configurar Express.
-- [ ] Separar `app.ts` y `server.ts`.
-- [ ] Crear `GET /api/health`.
-- [ ] Configurar rutas.
+- [x] Instalar y configurar Express.
+- [x] Separar `app.ts` y `server.ts`.
+- [x] Crear `GET /api/health`.
+- [x] Configurar rutas.
 - [ ] Crear middleware para rutas no encontradas.
 - [ ] Crear manejo centralizado de errores.
 - [ ] Definir el formato basico de respuestas HTTP.
 
 ### Base de datos
 
-- [ ] Disenar el modelo conceptual del MVP.
+- [ ] Diseñar el modelo conceptual del MVP.
 - [ ] Analizar entidades y relaciones.
 - [x] Elegir diseno conceptual previo con construccion progresiva por modulos.
 - [x] Elegir migraciones SQL pequenas y numeradas con seeds separados.
@@ -163,5 +163,5 @@ un fallo del servidor web de un fallo de infraestructura.
 
 ## Proximo paso
 
-Instalar Express y sus tipos para construir la base HTTP de la API. Cada paso
-se implementara y verificara antes de avanzar al siguiente.
+Agregar respuestas para rutas inexistentes y un manejo centralizado de errores.
+Cada paso se implementara y verificara antes de avanzar al siguiente.
