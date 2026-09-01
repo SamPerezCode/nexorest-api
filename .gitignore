@@ -1,0 +1,24 @@
+# Dependencies
+node_modules/
+
+# Compiled TypeScript
+dist/
+
+# Environment variables
+.env
+.env.*
+!.env.example
+
+# Test coverage
+coverage/
+
+# Logs
+*.log
+npm-debug.log*
+
+# Editor settings
+.vscode/
+
+# Operating system files
+.DS_Store
+Thumbs.db

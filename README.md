@@ -36,11 +36,11 @@ que funciona.
 
 - [x] Confirmar la carpeta independiente `nexorest-api`.
 - [x] Inicializar el proyecto con Node.js y npm.
-- [ ] Inicializar el repositorio Git.
+- [x] Inicializar el repositorio Git.
 - [ ] Configurar TypeScript.
 - [ ] Crear la estructura inicial de directorios.
 - [ ] Configurar variables de entorno.
-- [ ] Crear `.gitignore` y proteger informacion sensible.
+- [x] Crear `.gitignore` y proteger informacion sensible.
 - [ ] Configurar ESLint.
 - [ ] Configurar Prettier.
 - [ ] Crear scripts de desarrollo, compilacion y ejecucion.
