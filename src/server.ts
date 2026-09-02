@@ -1,7 +1,8 @@
 import { app } from "./app";
+import { environment } from "./config/env";
 
-const PORT = 3000;
-
-app.listen(PORT, () => {
-  console.log(`nexorest-api ejecutándose en el puerto ${PORT}`);
+app.listen(environment.PORT, () => {
+  console.log(
+    `nexorest-api ejecutándose en el puerto ${environment.PORT}`
+  );
 });

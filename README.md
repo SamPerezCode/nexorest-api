@@ -24,8 +24,8 @@ adiciones, cancelaciones y cierre de la orden con trazabilidad histórica.
 
 **Bloque actual:** configuración de la base técnica.
 
-**Ultimo avance verificado:** manejo centralizado de errores verificado con un
-error intencional y retirando despues la ruta temporal de prueba.
+**Ultimo avance verificado:** variables de entorno cargadas con dotenv y
+validadas con Zod, incluyendo una prueba de arranque con un puerto invalido.
 
 ## Checklist del proyecto
 
@@ -39,7 +39,7 @@ que funciona.
 - [x] Inicializar el repositorio Git.
 - [x] Configurar TypeScript.
 - [ ] Crear la estructura inicial de directorios.
-- [ ] Configurar variables de entorno.
+- [x] Configurar variables de entorno.
 - [x] Crear `.gitignore` y proteger información sensible.
 - [ ] Configurar ESLint.
 - [ ] Configurar Prettier.
@@ -53,20 +53,20 @@ que funciona.
 - [x] Configurar rutas.
 - [x] Crear middleware para rutas no encontradas.
 - [x] Crear manejo centralizado de errores.
-- [ ] Definir el formato basico de respuestas HTTP.
+- [ ] Definir el formato básico de respuestas HTTP.
 
 ### Base de datos
 
 - [ ] Diseñar el modelo conceptual del MVP.
 - [ ] Analizar entidades y relaciones.
-- [x] Elegir diseno conceptual previo con construccion progresiva por modulos.
-- [x] Elegir migraciones SQL pequenas y numeradas con seeds separados.
+- [x] Elegir diseño conceptual previo con construcción progresiva por módulos.
+- [x] Elegir migraciones SQL pequeñas y numeradas con seeds separados.
 - [ ] Crear la estructura para migraciones y seeds.
 - [ ] Crear `nexorest_db` en MySQL.
-- [ ] Configurar las variables de conexion.
+- [ ] Configurar las variables de conexión.
 - [ ] Configurar el pool con `mysql2/promise`.
-- [ ] Comprobar la conexion desde el backend.
-- [ ] Crear consultas de verificacion.
+- [ ] Comprobar la conexión desde el backend.
+- [ ] Crear consultas de verificación.
 - [ ] Crear progresivamente tablas, llaves y restricciones.
 - [ ] Agregar indices justificados por las consultas.
 - [ ] Agregar datos iniciales mediante seeds controlados.
@@ -184,6 +184,13 @@ Los errores se registrarán con su detalle en el servidor, pero las respuestas
 `500` no expondrán trazas ni información interna al cliente. La API responderá
 un mensaje genérico y el middleware central mantendrá el formato consistente.
 
+### DT-008: configuracion del entorno
+
+La configuracion local se cargara desde `.env`, que permanecera fuera de Git.
+`.env.example` documentara las variables requeridas sin contener secretos. Zod
+validara y transformara los valores antes de que el servidor abra el puerto o
+se conecte a servicios de infraestructura.
+
 ## Fuera del alcance del primer MVP
 
 - Inventario, recetas y producción.
@@ -195,5 +202,5 @@ un mensaje genérico y el middleware central mantendrá el formato consistente.
 
 ## Proximo paso
 
-Configurar y validar variables de entorno antes de conectar servicios de
-infraestructura como MySQL. Cada paso se verificará antes de avanzar.
+Configurar ESLint y Prettier para automatizar las reglas de calidad y formato
+antes de continuar con la conexion a MySQL.
