@@ -1,5 +1,6 @@
 import express from "express";
 
+import { errorHandler } from "./middlewares/error-handler";
 import { notFound } from "./middlewares/not-found";
 import { apiRouter } from "./routes";
 
@@ -10,5 +11,6 @@ app.use(express.json());
 app.use("/api", apiRouter);
 
 app.use(notFound);
+app.use(errorHandler);
 
 export { app };

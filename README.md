@@ -10,29 +10,29 @@ adiciones, cancelaciones y cierre de la orden con trazabilidad histórica.
 > Este repositorio contiene solamente el backend. El frontend futuro vivira en
 > un proyecto separado llamado `nexorest-web`.
 
-## Tecnologias previstas
+## Tecnologías previstas
 
 - Node.js y TypeScript.
 - Express y API REST.
 - MySQL 8 con `mysql2/promise`.
-- Zod para validacion.
-- JWT y bcrypt para autenticacion.
+- Zod para validación.
+- JWT y bcrypt para autenticación.
 - ESLint y Prettier.
 - Socket.IO en una etapa posterior.
 
 ## Estado actual
 
-**Bloque actual:** configuracion de la base tecnica.
+**Bloque actual:** configuración de la base técnica.
 
-**Ultimo avance verificado:** enrutador central y middleware para rutas no
-encontradas verificados mediante peticiones HTTP reales.
+**Ultimo avance verificado:** manejo centralizado de errores verificado con un
+error intencional y retirando despues la ruta temporal de prueba.
 
 ## Checklist del proyecto
 
-Una tarea se marca como terminada solo despues de implementarla y comprobar
+Una tarea se marca como terminada solo después de implementarla y comprobar
 que funciona.
 
-### Configuracion
+### Configuración
 
 - [x] Confirmar la carpeta independiente `nexorest-api`.
 - [x] Inicializar el proyecto con Node.js y npm.
@@ -43,7 +43,7 @@ que funciona.
 - [x] Crear `.gitignore` y proteger información sensible.
 - [ ] Configurar ESLint.
 - [ ] Configurar Prettier.
-- [x] Crear scripts de desarrollo, compilacion y ejecucion.
+- [x] Crear scripts de desarrollo, compilación y ejecución.
 
 ### API y servidor
 
@@ -52,7 +52,7 @@ que funciona.
 - [x] Crear `GET /api/health`.
 - [x] Configurar rutas.
 - [x] Crear middleware para rutas no encontradas.
-- [ ] Crear manejo centralizado de errores.
+- [x] Crear manejo centralizado de errores.
 - [ ] Definir el formato basico de respuestas HTTP.
 
 ### Base de datos
@@ -131,15 +131,15 @@ que funciona.
 
 ### DT-001: arquitectura inicial
 
-NexoRest se construira como un monolito modular. Los modulos estaran separados
-por responsabilidad de negocio, pero se desplegaran como una sola aplicacion.
+NexoRest se construirá como un monolito modular. Los módulos estarán separados
+por responsabilidad de negocio, pero se desplegaran como una sola aplicación.
 
 ### DT-002: acceso a datos
 
 Se utilizara MySQL directamente mediante SQL y `mysql2/promise`. No se usara
 Prisma durante este MVP.
 
-### DT-003: evolucion del esquema
+### DT-003: evolución del esquema
 
 Antes de crear las tablas se definira el modelo conceptual minimo del MVP. La
 implementacion se hara progresivamente mediante migraciones SQL pequenas,
@@ -152,28 +152,48 @@ scripts de seeds separados.
 activo. La disponibilidad de MySQL se comprobara por separado para distinguir
 un fallo del servidor web de un fallo de infraestructura.
 
-### DT-005: organizacion de rutas
+### DT-005: organización de rutas
 
-`app.ts` registrara un unico router bajo `/api`. El router central compondra las
-rutas tecnicas y las rutas propias de cada modulo para evitar que `app.ts`
+`app.ts` registrara un único router bajo `/api`. El router central compondrá las
+rutas técnicas y las rutas propias de cada modulo para evitar que `app.ts`
 crezca junto con la cantidad de funcionalidades.
+
+La dirección final de una ruta se forma al combinar los segmentos registrados
+en cada nivel:
+
+```text
+app.ts              routes/index.ts       health.routes.ts
+/api            +   /health           +   /
+                                         |
+                                         +-- GET /api/health
+```
+
+`app.ts` solo conocerá el router principal y los middlewares globales. Cada
+módulo conservará sus propias rutas y el router central se encargará de
+conectarlas bajo `/api`.
 
 ### DT-006: estilo de funciones
 
-Se preferiran arrow functions almacenadas en constantes para callbacks,
+Se preferirán arrow functions almacenadas en constantes para callbacks,
 middlewares, controladores, servicios y utilidades. Se usaran declaraciones
-tradicionales solamente cuando exista una razon tecnica concreta.
+tradicionales solamente cuando exista una razón técnica concreta.
+
+### DT-007: errores internos
+
+Los errores se registrarán con su detalle en el servidor, pero las respuestas
+`500` no expondrán trazas ni información interna al cliente. La API responderá
+un mensaje genérico y el middleware central mantendrá el formato consistente.
 
 ## Fuera del alcance del primer MVP
 
-- Inventario, recetas y produccion.
+- Inventario, recetas y producción.
 - Pedidos web a domicilio.
 - Caja, arqueos y pagos en linea.
-- Facturacion electronica.
-- Integracion con WhatsApp.
-- Impresion termica automatica.
+- Facturación electronica.
+- Integración con WhatsApp.
+- Impresión térmica automática.
 
 ## Proximo paso
 
-Agregar un manejo centralizado de errores para producir respuestas JSON
-consistentes. Cada paso se implementara y verificara antes de avanzar.
+Configurar y validar variables de entorno antes de conectar servicios de
+infraestructura como MySQL. Cada paso se verificará antes de avanzar.
