@@ -1,7 +1,7 @@
 {
-  "name": "nexorest-api",
+  "name": "sazora-api",
   "version": "1.0.0",
-  "description": "Backend API for NexoRest",
+  "description": "Backend API for Sazora",
   "main": "dist/server.js",
   "scripts": {
     "dev": "tsx watch src/server.ts",

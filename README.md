@@ -1,6 +1,6 @@
-# NexoRest API
+# Sazora API
 
-Backend de NexoRest, una plataforma de gestión para restaurantes, cafeterías,
+Backend de Sazora, una plataforma de gestión para restaurantes, cafeterías,
 panaderías y otros negocios gastronómicos.
 
 El primer MVP cubrirá el flujo operativo entre meseros y cocina: apertura de
@@ -8,7 +8,7 @@ El primer MVP cubrirá el flujo operativo entre meseros y cocina: apertura de
 adiciones, cancelaciones y cierre de la orden con trazabilidad histórica.
 
 > Este repositorio contiene solamente el backend. El frontend futuro vivirá en
-> un proyecto separado llamado `nexorest-web`.
+> un proyecto separado llamado `sazora-web`.
 
 ## Tecnologías previstas
 
@@ -24,8 +24,8 @@ adiciones, cancelaciones y cierre de la orden con trazabilidad histórica.
 
 **Bloque actual:** configuración de la base técnica.
 
-**Último avance verificado:** ESLint y Prettier configurados y ejecutados junto
-con la validación de TypeScript.
+**Último avance verificado:** identidad de Sazora validada en el paquete, la
+documentación, el servidor y el endpoint de salud.
 
 ## Checklist del proyecto
 
@@ -34,7 +34,7 @@ que funciona.
 
 ### Configuración
 
-- [x] Confirmar la carpeta independiente `nexorest-api`.
+- [x] Confirmar la carpeta independiente `sazora-api`.
 - [x] Inicializar el proyecto con Node.js y npm.
 - [x] Inicializar el repositorio Git.
 - [x] Configurar TypeScript.
@@ -62,7 +62,7 @@ que funciona.
 - [x] Elegir diseño conceptual previo con construcción progresiva por módulos.
 - [x] Elegir migraciones SQL pequeñas y numeradas con seeds separados.
 - [ ] Crear la estructura para migraciones y seeds.
-- [ ] Crear `nexorest_db` en MySQL.
+- [ ] Crear `sazora_db` en MySQL.
 - [ ] Configurar las variables de conexión.
 - [ ] Configurar el pool con `mysql2/promise`.
 - [ ] Comprobar la conexión desde el backend.
@@ -131,7 +131,7 @@ que funciona.
 
 ### DT-001: arquitectura inicial
 
-NexoRest se construirá como un monolito modular. Los módulos estarán separados
+Sazora se construirá como un monolito modular. Los módulos estarán separados
 por responsabilidad de negocio, pero se desplegarán como una sola aplicación.
 
 ### DT-002: acceso a datos
@@ -199,6 +199,13 @@ TypeScript permanecerá fijado en la versión `6.0.3` mientras
 La versión podrá actualizarse cuando todo el conjunto de herramientas sea
 compatible y las verificaciones del proyecto continúen funcionando.
 
+### DT-010: identidad del proyecto
+
+La plataforma se llamará Sazora. Sus identificadores técnicos serán
+`sazora-api` para el backend, `sazora-web` para el frontend y `sazora_db` para
+la base de datos MySQL. Esta convención mantendrá alineados la marca, los
+repositorios y los servicios sin mezclar sus responsabilidades.
+
 ## Fuera del alcance del primer MVP
 
 - Inventario, recetas y producción.
@@ -211,4 +218,4 @@ compatible y las verificaciones del proyecto continúen funcionando.
 ## Próximo paso
 
 Preparar la estructura de base de datos y comprobar el acceso al servidor local
-de MySQL antes de crear `nexorest_db`.
+de MySQL antes de crear `sazora_db`.
