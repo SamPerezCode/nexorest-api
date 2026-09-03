@@ -4,7 +4,7 @@ const errorHandler: ErrorRequestHandler = (
   error,
   _request,
   response,
-  _next
+  _next,
 ) => {
   console.error(error);
 
