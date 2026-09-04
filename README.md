@@ -22,10 +22,10 @@ adiciones, cancelaciones y cierre de la orden con trazabilidad histórica.
 
 ## Estado actual
 
-**Bloque actual:** configuración de la base técnica.
+**Bloque actual:** configuración de la conexión con MySQL.
 
-**Último avance verificado:** identidad de Sazora validada en el paquete, la
-documentación, el servidor y el endpoint de salud.
+**Último avance verificado:** base de datos `sazora_db` creada en MySQL 8 con
+el juego de caracteres `utf8mb4` y la colación `utf8mb4_0900_ai_ci`.
 
 ## Checklist del proyecto
 
@@ -62,7 +62,7 @@ que funciona.
 - [x] Elegir diseño conceptual previo con construcción progresiva por módulos.
 - [x] Elegir migraciones SQL pequeñas y numeradas con seeds separados.
 - [ ] Crear la estructura para migraciones y seeds.
-- [ ] Crear `sazora_db` en MySQL.
+- [x] Crear `sazora_db` en MySQL.
 - [ ] Configurar las variables de conexión.
 - [ ] Configurar el pool con `mysql2/promise`.
 - [ ] Comprobar la conexión desde el backend.
@@ -217,5 +217,5 @@ repositorios y los servicios sin mezclar sus responsabilidades.
 
 ## Próximo paso
 
-Preparar la estructura de base de datos y comprobar el acceso al servidor local
-de MySQL antes de crear `sazora_db`.
+Crear un usuario de MySQL exclusivo para la API y concederle acceso solamente a
+`sazora_db`, evitando conectar el backend con la cuenta administrativa `root`.
